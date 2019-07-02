@@ -1,0 +1,31 @@
+ID: cldfndjy
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: cldjy
+   type: html5
+   path: cldjy
+   parameters:
+      disk-quota: 256M
+      memory: 256M
+   build-parameters:
+      builder: grunt
+   requires:
+    - name: uaa_cldfndjy
+    - name: dest_cldfndjy
+
+resources:
+ - name: uaa_cldfndjy
+   parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+   type: org.cloudfoundry.managed-service
+
+ - name: dest_cldfndjy
+   parameters:
+      service-plan: lite
+      service: destination
+   type: org.cloudfoundry.managed-service
+
